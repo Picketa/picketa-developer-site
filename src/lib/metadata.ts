@@ -1,5 +1,5 @@
 import { Metadata } from 'next';
-import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL,DEFAULT_OG_TITLE, DEFAULT_OG_DESCRIPTION } from './constants';
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL,DEFAULT_OG_TITLE, DEFAULT_OG_DESCRIPTION, DEFAULT_OG_IMAGE_TITLE } from './constants';
 
 export type MetadataOverrides = Partial<Metadata>;
 
@@ -48,7 +48,7 @@ export function generateMetadata(overrides: MetadataOverrides = {}): Metadata {
       siteName: SITE_TITLE,
       images: [{
         url: generateOgImageUrl({ 
-          title: DEFAULT_OG_TITLE,
+          title: DEFAULT_OG_IMAGE_TITLE,
         }),
         width: 1200,
         height: 630,
@@ -63,7 +63,7 @@ export function generateMetadata(overrides: MetadataOverrides = {}): Metadata {
       description: DEFAULT_OG_DESCRIPTION,
       creator: '@picketasystems',
       images: [generateOgImageUrl({ 
-        title: DEFAULT_OG_TITLE,
+        title: DEFAULT_OG_IMAGE_TITLE,
       })],
     },
   };

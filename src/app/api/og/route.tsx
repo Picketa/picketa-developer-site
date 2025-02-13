@@ -29,7 +29,7 @@ export async function GET(req: NextRequest) {
             display: 'flex',
             flexDirection: 'column',
             background: backgroundStyle,
-            backgroundSize: backgroundImage ? 'cover' : undefined,
+            ...(backgroundImage && { backgroundSize: 'cover' }),
             padding: '60px',
           }}
         >
@@ -37,9 +37,11 @@ export async function GET(req: NextRequest) {
             display: 'flex',
             flexDirection: 'column',
             flex: 1,
-            background: backgroundImage ? 'rgba(255, 255, 255, 0.85)' : undefined,
-            padding: backgroundImage ? '40px' : undefined,
-            borderRadius: backgroundImage ? '24px' : undefined,
+            ...(backgroundImage && {
+              background: 'rgba(255, 255, 255, 0.85)',
+              padding: '40px',
+              borderRadius: '24px',
+            }),
           }}>
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <SmallLogo width={140} height={140} />
